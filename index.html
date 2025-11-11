@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контрольная Точка 4</title>
+    <style>
+        /* тут я пытаюсь сделать стили */
+        body {
+            font-family: Calibri, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #e0e0e0;
+            padding-top: 120px; /* это чтобы контент не прятался под менюшкой */
+        }
+
+        /* меню которое всегда сверху */
+        nav {
+            background-color: #600018;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 20px;
+            padding: 8px 15px;
+        }
+
+        nav a:hover {
+            background-color: #800020;
+        }
+
+        /* шапка сайта */
+        header {
+            background-color: #800020;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px; /* отступ от меню */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* картинка кота */
+        .cat-image {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            border-radius: 10px;
+            border: 3px solid #800020;
+        }
+
+        /* основная часть */
+        main {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* блоки с информацией */
+        section {
+            background-color: #1a1a1a;
+            margin: 25px 0;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #800020;
+        }
+
+        h2 {
+            color: #cc6666;
+        }
+
+        /* картинки в портфолио */
+        .portfolio-item {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            border: 2px solid #800020;
+        }
+
+        .portfolio-item p {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* контакты */
+        .contact-info {
+            font-size: 18px;
+        }
+
+        /* подвал */
+        footer {
+            background-color: #800020;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+
+    <header>
+        <h1>Контрольная Точка 4</h1>
+    </header>
+
+    <main>
+        <div id="home" class="page">
+            <img src="images/cat.jpg" alt="Кот" class="cat-image">
+
+            <section>
+                <h2>Обо мне</h2>
+                <p>Привет! Меня зовут <strong>Василий Яковлев</strong>, и я студент. Я только начал изучать <strong>HTML</strong> и <strong>CSS</strong>, и это мой первый сайт.</p>
+                <p>Я учусь в <strong>ITHub колледже</strong>. Очень люблю учиться чему-то новому!</p>
+            </section>
+
+            <section>
+                <h2>Мои увлечения</h2>
+                <ul>
+                    <li>Программирование</li>
+                    <li>Видеоигры</li>
+                    <li>Музыка</li>
+                    <li>Путешествия</li>
+                    <li>Уход за моим котом</li>
+                </ul>
+            </section>
+        </div>
+
+        <div id="portfolio" class="page" style="display:none">
+            <section>
+                <h2>Мое портфолио</h2>
+                
+                <div class="portfolio-item">
+                    <img src="images/kototort.png" alt="Kototort">
+                    <p>Kototort</p>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="images/severnoeleto.png" alt="Severnoeleto">
+                    <p>Severnoeleto</p>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="images/sous.png" alt="Sous">
+                    <p>Sous</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="contacts" class="page" style="display:none">
+            <section>
+                <h2>Мои контакты</h2>
+                <div class="contact-info">
+                    <p>Email: <strong>vasiliyyakovlev@mail.com</strong></p>
+                    <p>Телефон: <strong>+79111234567</strong></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 г. Василий Яковлев</p>
+    </footer>
+
+    <script>
+        // это чтобы переключаться между страницами
+        function showPage(pageId) {
+            // сначала прячу все страницы
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            
+            // потом показываю нужную
+            document.getElementById(pageId).style.display = 'block';
+        }
+        
+        // когда нажимаю на ссылки в меню
+        var links = document.querySelectorAll('nav a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+                showPage(targetId);
+            });
+        }
+        
+        // при загрузке показываю главную
+        showPage('home');
+    </script>
+
+</body>
+</html>
