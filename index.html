@@ -5,19 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контрольная Точка 4</title>
     <style>
-        /* тут я пытаюсь сделать стили */
         body {
             font-family: Calibri, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000;
+            background-color: #1a3d2f;
             color: #e0e0e0;
-            padding-top: 120px; /* это чтобы контент не прятался под менюшкой */
+            padding-top: 120px;
         }
 
-        /* меню которое всегда сверху */
         nav {
-            background-color: #600018;
+            background-color: #2d5a45;
             text-align: center;
             padding: 15px 0;
             position: fixed;
@@ -35,52 +33,48 @@
         }
 
         nav a:hover {
-            background-color: #800020;
+            background-color: #3a6b53;
         }
 
-        /* шапка сайта */
         header {
-            background-color: #800020;
+            background-color: #2d5a45;
             color: white;
             text-align: center;
             padding: 30px 0;
-            margin-top: 50px; /* отступ от меню */
+            margin-top: 50px;
+            border-bottom: 4px solid #4caf7d;
         }
 
         header h1 {
             margin: 0;
         }
 
-        /* картинка кота */
         .cat-image {
             display: block;
             margin: 20px auto;
             width: 200px;
             border-radius: 10px;
-            border: 3px solid #800020;
+            border: 3px solid #4caf7d;
         }
 
-        /* основная часть */
         main {
             padding: 30px 20px;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        /* блоки с информацией */
         section {
-            background-color: #1a1a1a;
+            background-color: #2a4739;
             margin: 25px 0;
             padding: 25px;
             border-radius: 8px;
-            border-left: 4px solid #800020;
+            border-left: 4px solid #4caf7d;
         }
 
         h2 {
-            color: #cc6666;
+            color: #4caf7d;
         }
 
-        /* картинки в портфолио */
         .portfolio-item {
             text-align: center;
             margin: 40px 0;
@@ -90,7 +84,7 @@
             width: 100%;
             max-width: 600px;
             border-radius: 8px;
-            border: 2px solid #800020;
+            border: 2px solid #4caf7d;
         }
 
         .portfolio-item p {
@@ -99,14 +93,12 @@
             font-weight: bold;
         }
 
-        /* контакты */
         .contact-info {
             font-size: 18px;
         }
 
-        /* подвал */
         footer {
-            background-color: #800020;
+            background-color: #2d5a45;
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -128,7 +120,6 @@
 
     <main>
         <div id="home" class="page">
-            <!-- Если картинка кота не работает, замени на эту ссылку -->
             <img src="./images/cat.jpg" alt="Кот" class="cat-image" onerror="this.src='https://placekitten.com/200/200'">
 
             <section>
@@ -154,19 +145,18 @@
                 <h2>Мое портфолио</h2>
                 
                 <div class="portfolio-item">
-                    <!-- Замени пути если картинки не работают -->
-                    <img src="./images/kototort.png" alt="Kototort" onerror="this.src='https://via.placeholder.com/600x400/800020/ffffff?text=Kototort'">
-                    <p>Kototort</p>
+                    <img src="./images/kototort.png" alt="Кондитерская КотоТорт" onerror="this.src='https://via.placeholder.com/600x400/4caf7d/ffffff?text=Кондитерская+КотоТорт'">
+                    <p>Кондитерская КотоТорт</p>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="./images/severnoeleto.png" alt="Severnoeleto" onerror="this.src='https://via.placeholder.com/600x400/600018/ffffff?text=Severnoeleto'">
-                    <p>Severnoeleto</p>
+                    <img src="./images/severnoeleto.png" alt="Морс Северное Лето" onerror="this.src='https://via.placeholder.com/600x400/2d5a45/ffffff?text=Морс+Северное+Лето'">
+                    <p>Морс Северное Лето</p>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="./images/sous.png" alt="Sous" onerror="this.src='https://via.placeholder.com/600x400/cc6666/ffffff?text=Sous'">
-                    <p>Sous</p>
+                    <img src="./images/sous.png" alt="Фьюжн-Соус Fire in the Hole" onerror="this.src='https://via.placeholder.com/600x400/1a3d2f/ffffff?text=Фьюжн-Соус+Fire+in+the+Hole'">
+                    <p>Фьюжн-Соус Fire in the Hole</p>
                 </div>
             </section>
         </div>
@@ -187,19 +177,15 @@
     </footer>
 
     <script>
-        // это чтобы переключаться между страницами
         function showPage(pageId) {
-            // сначала прячу все страницы
             var pages = document.querySelectorAll('.page');
             for (var i = 0; i < pages.length; i++) {
                 pages[i].style.display = 'none';
             }
             
-            // потом показываю нужную
             document.getElementById(pageId).style.display = 'block';
         }
         
-        // когда нажимаю на ссылки в меню
         var links = document.querySelectorAll('nav a');
         for (var i = 0; i < links.length; i++) {
             links[i].addEventListener('click', function(e) {
@@ -209,10 +195,8 @@
             });
         }
         
-        // при загрузке показываю главную
         showPage('home');
 
-        // проверка картинок
         console.log('Проверяю картинки...');
         var images = document.querySelectorAll('img');
         for (var i = 0; i < images.length; i++) {
