@@ -128,7 +128,8 @@
 
     <main>
         <div id="home" class="page">
-            <img src="images/cat.jpg" alt="Кот" class="cat-image">
+            <!-- Если картинка кота не работает, замени на эту ссылку -->
+            <img src="./images/cat.jpg" alt="Кот" class="cat-image" onerror="this.src='https://placekitten.com/200/200'">
 
             <section>
                 <h2>Обо мне</h2>
@@ -153,17 +154,18 @@
                 <h2>Мое портфолио</h2>
                 
                 <div class="portfolio-item">
-                    <img src="images/kototort.png" alt="Kototort">
+                    <!-- Замени пути если картинки не работают -->
+                    <img src="./images/kototort.png" alt="Kototort" onerror="this.src='https://via.placeholder.com/600x400/800020/ffffff?text=Kototort'">
                     <p>Kototort</p>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="images/severnoeleto.png" alt="Severnoeleto">
+                    <img src="./images/severnoeleto.png" alt="Severnoeleto" onerror="this.src='https://via.placeholder.com/600x400/600018/ffffff?text=Severnoeleto'">
                     <p>Severnoeleto</p>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="images/sous.png" alt="Sous">
+                    <img src="./images/sous.png" alt="Sous" onerror="this.src='https://via.placeholder.com/600x400/cc6666/ffffff?text=Sous'">
                     <p>Sous</p>
                 </div>
             </section>
@@ -209,6 +211,13 @@
         
         // при загрузке показываю главную
         showPage('home');
+
+        // проверка картинок
+        console.log('Проверяю картинки...');
+        var images = document.querySelectorAll('img');
+        for (var i = 0; i < images.length; i++) {
+            console.log('Картинка:', images[i].src);
+        }
     </script>
 
 </body>
